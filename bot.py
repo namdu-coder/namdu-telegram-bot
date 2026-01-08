@@ -1,7 +1,8 @@
+import os
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # Render Environment Variable
 ADMIN_ID = 5510739152
 
 bot = Bot(token=BOT_TOKEN)
@@ -17,7 +18,10 @@ menu.add("📝 Mening murojaatlarim")
 async def start(msg: types.Message):
     kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     kb.add(KeyboardButton("📱 Telefon raqamni yuborish", request_contact=True))
-    await msg.answer("Botdan foydalanish uchun telefon raqamingizni yuboring 👇", reply_markup=kb)
+    await msg.answer(
+        "Botdan foydalanish uchun telefon raqamingizni yuboring 👇",
+        reply_markup=kb
+    )
 
 
 @dp.message_handler(content_types=types.ContentType.CONTACT)
@@ -63,7 +67,4 @@ async def save_message(msg: types.Message):
 
 
 if __name__ == "__main__":
-    executor.start_polling(dp)
-
-
-
+    executor.start_polling(dp, skip_updates=True)
