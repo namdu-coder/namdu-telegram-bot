@@ -1,10 +1,10 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-TOKEN = "8466945069:AAGIDSzCCXs3lihD2VmKzIa2EyE9tIwgHYE"
+BOT_TOKEN = "8466945069:AAGIDSzCCXs3lihD2VmKzIa2EyE9tIwgHYE"
 ADMIN_ID = 5510739152
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
 menu = ReplyKeyboardMarkup(resize_keyboard=True)
@@ -64,4 +64,5 @@ async def save_message(msg: types.Message):
 
 if __name__ == "__main__":
     executor.start_polling(dp)
+
 
