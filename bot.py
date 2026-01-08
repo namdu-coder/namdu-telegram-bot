@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-BOT_TOKEN = "8466945069:AAGIDSzCCXs3lihD2VmKzIa2EyE9tIwgHYE"
+TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = 5510739152
 
 bot = Bot(token=BOT_TOKEN)
@@ -64,5 +64,6 @@ async def save_message(msg: types.Message):
 
 if __name__ == "__main__":
     executor.start_polling(dp)
+
 
 
